@@ -1,0 +1,29 @@
+{
+  "name": "csgo-cache",
+  "version": "1.0.0",
+  "description": "CSGO market viewer and market analyzer built with modern web frameworks.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/httpNick/csgo-cache.git"
+  },
+  "keywords": [
+    "csgo",
+    "csgostash",
+    "csgocache",
+    "csgomarket",
+    "market",
+    "prices",
+    "analyst",
+    "steam"
+  ],
+  "author": "httpNick",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/httpNick/csgo-cache/issues"
+  },
+  "homepage": "https://github.com/httpNick/csgo-cache#readme"
+}
