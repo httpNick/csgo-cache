@@ -1,19 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import NavBar from './nav/navbar';
 
-var Start = React.createClass({
-  getText: function() {
-    return 'hi'
-  },
-
-  render: function() {
-    return (
-      <h1 className="jumbotron">{this.getText()}</h1>
-    );
-  }
-});
-
-class TestEsSixComponent extends React.Component {
+class App extends React.Component {
 
   constructor(...args) {
     super(...args);
@@ -22,14 +11,14 @@ class TestEsSixComponent extends React.Component {
   render() {
     return (
       <div>
+        <NavBar />
         <h1 className="jumbotron">Hello from an ES6 class</h1>
-        <Start />
       </div>
     );
   }
 }
 
 ReactDOM.render(
-  <TestEsSixComponent />,
-  document.getElementById('example')
+  <App />,
+  document.getElementById('main')
 )
