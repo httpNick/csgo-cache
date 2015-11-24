@@ -2,7 +2,6 @@
   "name": "csgo-cache",
   "version": "1.0.0",
   "description": "CSGO market viewer and market analyzer built with modern web frameworks.",
-  "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -25,5 +24,12 @@
   "bugs": {
     "url": "https://github.com/httpNick/csgo-cache/issues"
   },
-  "homepage": "https://github.com/httpNick/csgo-cache#readme"
+  "homepage": "https://github.com/httpNick/csgo-cache#readme",
+  "dependencies": {
+    "babel-preset-es2015": "^6.1.18",
+    "babel-preset-react": "^6.1.18",
+    "babelify": "^7.2.0",
+    "react": "^0.14.3",
+    "react-dom": "^0.14.3"
+  }
 }

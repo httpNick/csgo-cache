@@ -1,0 +1,28 @@
+{
+  "name": "csgo-cache",
+  "description": "CSGO market viewer and market analyzer built with modern web frameworks.",
+  "main": "",
+  "authors": [
+    "httpNick"
+  ],
+  "license": "ISC",
+  "keywords": [
+    "csgo",
+    "csgostash",
+    "csgocache",
+    "csgomarket",
+    "market",
+    "prices",
+    "analyst",
+    "steam"
+  ],
+  "homepage": "https://github.com/httpNick/csgo-cache",
+  "moduleType": [],
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
