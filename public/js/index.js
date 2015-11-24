@@ -13,7 +13,23 @@ var Start = React.createClass({
   }
 });
 
+class TestEsSixComponent extends React.Component {
+
+  constructor(...args) {
+    super(...args);
+  }
+
+  render() {
+    return (
+      <div>
+        <h1 className="jumbotron">Hello from an ES6 class</h1>
+        <Start />
+      </div>
+    );
+  }
+}
+
 ReactDOM.render(
-  <Start />,
+  <TestEsSixComponent />,
   document.getElementById('example')
 )
