@@ -1,10 +1,10 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
-import NavBar from './components/navbar';
-import TheButton from './components/thebutton';
-import store from './stores/store'
+import NavBar from './navbar';
+import TheButton from './thebutton';
+import store from '../stores/store'
+import Search from './search'
 
-class App extends React.Component {
+export default class csgocache extends React.Component {
 
   constructor(props) {
     super(props);
@@ -28,15 +28,11 @@ class App extends React.Component {
     return (
       <div>
         <NavBar />
-        <h1 className="jumbotron text-center">
-          <TheButton />
-        </h1>
+        <Search />
+        <div id="particles-js"></div>
       </div>
     );
   }
 }
 
-ReactDOM.render(
-  <App />,
-  document.getElementById('main')
-)
+particlesJS.load('particles-js', '../../assets/particles.json', () => {});

@@ -8,7 +8,7 @@ export default class NavBar extends React.Component {
 
   render() {
     return (
-      <nav className="navbar navbar-default">
+      <nav className="navbar navbar-default navbar-static-top">
         <div className="container-fluid">
           <div className="navbar-header">
             <a className="navbar-brand" href="#">csgo cache</a>
