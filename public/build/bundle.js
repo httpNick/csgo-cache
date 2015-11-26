@@ -20597,9 +20597,9 @@ var _AppDispatcher = require('../dispatcher/AppDispatcher');
 
 var _AppDispatcher2 = _interopRequireDefault(_AppDispatcher);
 
-var _csgocacheapi = require('../utils/csgocacheapi');
+var _csgocacheapicalls = require('../utils/csgocacheapicalls');
 
-var _csgocacheapi2 = _interopRequireDefault(_csgocacheapi);
+var _csgocacheapicalls2 = _interopRequireDefault(_csgocacheapicalls);
 
 var _constants = require('../constants/constants');
 
@@ -20611,12 +20611,12 @@ module.exports = {
     _AppDispatcher2.default.dispatch({
       actionType: _constants.constants.TEST
     });
-    _csgocacheapi2.default.get();
+    _csgocacheapicalls2.default.get();
   }
 
 };
 
-},{"../constants/constants":171,"../dispatcher/AppDispatcher":172,"../utils/csgocacheapi":174}],166:[function(require,module,exports){
+},{"../constants/constants":171,"../dispatcher/AppDispatcher":172,"../utils/csgocacheapicalls":174}],166:[function(require,module,exports){
 'use strict';
 
 var _AppDispatcher = require('../dispatcher/AppDispatcher');

@@ -1,5 +1,5 @@
 import AppDispatcher from '../dispatcher/AppDispatcher';
-import api from '../utils/csgocacheapi';
+import api from '../utils/csgocacheapicalls';
 import {constants} from '../constants/constants';
 
 module.exports = {
