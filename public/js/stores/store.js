@@ -22,17 +22,16 @@ class CSGOStore extends EventEmitter {
 
 }
 
-const CSGOStore = new CSGOStore();
+const csgostore = new CSGOStore();
 
 AppDispatcher.register((payload) => {
-  const action = payload.action;
-
-  switch (action.actionType) {
+  switch (payload.actionType) {
 
   case constants.TEST_RESPONSE:
 
-    _stuff.datalist.push(action.response.test);
-    CSGOStore.emit(constants.CHANGE);
+    _stuff.datalist.push(payload.response.test);
+    console.log(payload.response.test);
+    csgostore.emit(constants.CHANGE);
     break;
 
   default:
@@ -40,4 +39,4 @@ AppDispatcher.register((payload) => {
   }
 });
 
-export default CSGOStore;
+export default csgostore;

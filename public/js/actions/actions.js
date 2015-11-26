@@ -6,7 +6,7 @@ module.exports = {
 
   getTest : () => {
     AppDispatcher.dispatch({
-      actionType = constants.TEST
+      actionType : constants.TEST
     });
     api.get();
   }
