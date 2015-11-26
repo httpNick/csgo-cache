@@ -12,11 +12,11 @@ export default class Search extends React.Component {
           <div className="featurette">
              <div className="featurette-inner text-center">
                 <form role="form" className="search" id="inputForm">
-                   <h3 className="no-margin-top h1">search things</h3>
+                   <h3 className="no-margin-top h1">find csgo things</h3>
                    <div className="input-group input-group-lg">
                       <input type="search" className="form-control"></input>
-                      <span className="input-group-btn">
-                        <button className="btn btn-success" type="submit" value="Submit">Search</button>
+                      <span className="input-group-btn input-space">
+                        <button className="btn" type="submit" value="Submit">search</button>
                       </span>
                    </div>
                 </form>

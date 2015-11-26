@@ -20841,7 +20841,7 @@ var Search = (function (_React$Component) {
               _react2.default.createElement(
                 "h3",
                 { className: "no-margin-top h1" },
-                "search things"
+                "find csgo things"
               ),
               _react2.default.createElement(
                 "div",
@@ -20849,11 +20849,11 @@ var Search = (function (_React$Component) {
                 _react2.default.createElement("input", { type: "search", className: "form-control" }),
                 _react2.default.createElement(
                   "span",
-                  { className: "input-group-btn" },
+                  { className: "input-group-btn input-space" },
                   _react2.default.createElement(
                     "button",
-                    { className: "btn btn-success", type: "submit", value: "Submit" },
-                    "Search"
+                    { className: "btn", type: "submit", value: "Submit" },
+                    "search"
                   )
                 )
               )
