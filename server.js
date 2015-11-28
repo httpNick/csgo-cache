@@ -16,7 +16,7 @@ app.set('views', __dirname + '/public/view');
 // get statements
 app.get('/', (req, res) => {
   res.render('index');
-})
+});
 
 var server = app.listen(3000, () => {
   var host = server.address().address;
