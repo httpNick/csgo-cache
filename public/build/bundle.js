@@ -20873,7 +20873,7 @@ var Search = (function (_React$Component) {
               _react2.default.createElement(
                 'div',
                 { className: 'input-group input-group-lg' },
-                _react2.default.createElement('input', { type: 'search', className: 'form-control', onChange: this._handleChange.bind(this) }),
+                _react2.default.createElement('input', { type: 'search', placeholder: 'ex. AK-47', className: 'form-control', onChange: this._handleChange.bind(this) }),
                 _react2.default.createElement(
                   'span',
                   { className: 'input-group-btn input-space' },

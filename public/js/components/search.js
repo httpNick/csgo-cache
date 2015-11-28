@@ -29,7 +29,7 @@ export default class Search extends React.Component {
                 <form role="form" className="search" id="inputForm" onSubmit={this._handleSubmit.bind(this)}>
                    <h3 className="no-margin-top h1">find csgo things</h3>
                    <div className="input-group input-group-lg">
-                      <input type="search" className="form-control" onChange={this._handleChange.bind(this)}></input>
+                      <input type="search" placeholder="ex. AK-47" className="form-control" onChange={this._handleChange.bind(this)}></input>
                       <span className="input-group-btn input-space">
                         <button className="btn" type="submit">
                           search
