@@ -1,5 +1,5 @@
 import React from 'react';
-import {getTest} from '../actions/actions'
+import {getTest} from '../actions/actions';
 
 export default class TheButton extends React.Component {
 
@@ -14,7 +14,7 @@ export default class TheButton extends React.Component {
   render() {
     return (
       <button type="button" className="btn btn-default" onClick={this._add}>
-      press
+        press
       </button>
     );
   }

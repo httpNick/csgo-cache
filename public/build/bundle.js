@@ -20611,7 +20611,7 @@ module.exports = {
     _AppDispatcher2.default.dispatch({
       actionType: _constants.constants.TEST
     });
-    _csgocacheapicalls2.default.get();
+    _csgocacheapicalls2.default.search();
   }
 
 };
@@ -20788,7 +20788,7 @@ var NavBar = (function (_React$Component) {
 exports.default = NavBar;
 
 },{"react":161}],169:[function(require,module,exports){
-"use strict";
+'use strict';
 
 var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
 
@@ -20796,9 +20796,11 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-var _react = require("react");
+var _react = require('react');
 
 var _react2 = _interopRequireDefault(_react);
+
+var _actions = require('../actions/actions');
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -20824,36 +20826,41 @@ var Search = (function (_React$Component) {
   }
 
   _createClass(Search, [{
-    key: "render",
+    key: '_postTest',
+    value: function _postTest() {
+      (0, _actions.getTest)();
+    }
+  }, {
+    key: 'render',
     value: function render() {
       return _react2.default.createElement(
-        "div",
-        { className: "panel" },
+        'div',
+        { className: 'panel' },
         _react2.default.createElement(
-          "div",
-          { className: "featurette" },
+          'div',
+          { className: 'featurette' },
           _react2.default.createElement(
-            "div",
-            { className: "featurette-inner text-center" },
+            'div',
+            { className: 'featurette-inner text-center' },
             _react2.default.createElement(
-              "form",
-              { role: "form", className: "search", id: "inputForm" },
+              'form',
+              { role: 'form', className: 'search', id: 'inputForm' },
               _react2.default.createElement(
-                "h3",
-                { className: "no-margin-top h1" },
-                "find csgo things"
+                'h3',
+                { className: 'no-margin-top h1' },
+                'find csgo things'
               ),
               _react2.default.createElement(
-                "div",
-                { className: "input-group input-group-lg" },
-                _react2.default.createElement("input", { type: "search", className: "form-control" }),
+                'div',
+                { className: 'input-group input-group-lg' },
+                _react2.default.createElement('input', { type: 'search', className: 'form-control' }),
                 _react2.default.createElement(
-                  "span",
-                  { className: "input-group-btn input-space" },
+                  'span',
+                  { className: 'input-group-btn input-space' },
                   _react2.default.createElement(
-                    "button",
-                    { className: "btn", type: "submit", value: "Submit" },
-                    "search"
+                    'button',
+                    { className: 'btn', type: 'submit', onClick: this._postTest },
+                    'search'
                   )
                 )
               )
@@ -20869,7 +20876,7 @@ var Search = (function (_React$Component) {
 
 exports.default = Search;
 
-},{"react":161}],170:[function(require,module,exports){
+},{"../actions/actions":165,"react":161}],170:[function(require,module,exports){
 'use strict';
 
 var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
@@ -21047,14 +21054,11 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 module.exports = {
 
-  get: function get() {
-    _superagent2.default.get('/api/test').set('Accept', 'application/json').end(function (err, response) {
-      if (err) return console.error(err);
-
-      _serveractions2.default.receiveTest(response.body);
+  search: function search() {
+    _superagent2.default.post('/api/search').send({ post: 'data', here: 'wahoo' }).end(function (err, res) {
+      console.log(res);
     });
   }
-
 };
 
 },{"../actions/serveractions":166,"superagent":163}],175:[function(require,module,exports){

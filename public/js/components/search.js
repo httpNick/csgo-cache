@@ -1,9 +1,14 @@
 import React from 'react';
+import {getTest} from '../actions/actions';
 
 export default class Search extends React.Component {
 
   constructor(...args) {
     super(...args);
+  }
+
+  _postTest() {
+    getTest();
   }
 
   render() {
@@ -16,7 +21,9 @@ export default class Search extends React.Component {
                    <div className="input-group input-group-lg">
                       <input type="search" className="form-control"></input>
                       <span className="input-group-btn input-space">
-                        <button className="btn" type="submit" value="Submit">search</button>
+                        <button className="btn" type="submit" onClick={this._postTest}>
+                          search
+                        </button>
                       </span>
                    </div>
                 </form>

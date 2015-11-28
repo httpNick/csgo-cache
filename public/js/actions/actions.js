@@ -8,7 +8,7 @@ module.exports = {
     AppDispatcher.dispatch({
       actionType : constants.TEST
     });
-    api.get();
+    api.search();
   }
 
 };
