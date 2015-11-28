@@ -3,12 +3,14 @@ import request from 'superagent';
 
 module.exports = {
 
-  search: () => {
+  searchRequest : (data) => {
     request
       .post('/api/search')
-      .send({ post: 'data', here: 'wahoo' })
+      .send({ searchTerm : data })
       .end((err, res) => {
+        if (err) console.log(err);
         console.log(res);
-      });
-  }
+      })
+  },
+
 };

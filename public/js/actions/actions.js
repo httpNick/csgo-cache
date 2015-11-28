@@ -9,6 +9,13 @@ module.exports = {
       actionType : constants.TEST
     });
     api.search();
+  },
+
+  searchForTerm : (data) => {
+    AppDispatcher.dispatch({
+      actionType: constants.TEST
+    });
+    api.searchRequest(data);
   }
 
 };

@@ -20612,6 +20612,13 @@ module.exports = {
       actionType: _constants.constants.TEST
     });
     _csgocacheapicalls2.default.search();
+  },
+
+  searchForTerm: function searchForTerm(data) {
+    _AppDispatcher2.default.dispatch({
+      actionType: _constants.constants.TEST
+    });
+    _csgocacheapicalls2.default.searchRequest(data);
   }
 
 };
@@ -20822,13 +20829,26 @@ var Search = (function (_React$Component) {
       args[_key] = arguments[_key];
     }
 
-    return _possibleConstructorReturn(this, (_Object$getPrototypeO = Object.getPrototypeOf(Search)).call.apply(_Object$getPrototypeO, [this].concat(args)));
+    var _this = _possibleConstructorReturn(this, (_Object$getPrototypeO = Object.getPrototypeOf(Search)).call.apply(_Object$getPrototypeO, [this].concat(args)));
+
+    _this.state = {
+      value: ''
+    };
+    return _this;
   }
 
   _createClass(Search, [{
-    key: '_postTest',
-    value: function _postTest() {
-      (0, _actions.getTest)();
+    key: '_handleChange',
+    value: function _handleChange(event) {
+      this.setState({
+        value: event.target.value
+      });
+    }
+  }, {
+    key: '_handleSubmit',
+    value: function _handleSubmit(event) {
+      event.preventDefault();
+      (0, _actions.searchForTerm)(this.state.value);
     }
   }, {
     key: 'render',
@@ -20844,7 +20864,7 @@ var Search = (function (_React$Component) {
             { className: 'featurette-inner text-center' },
             _react2.default.createElement(
               'form',
-              { role: 'form', className: 'search', id: 'inputForm' },
+              { role: 'form', className: 'search', id: 'inputForm', onSubmit: this._handleSubmit.bind(this) },
               _react2.default.createElement(
                 'h3',
                 { className: 'no-margin-top h1' },
@@ -20853,13 +20873,13 @@ var Search = (function (_React$Component) {
               _react2.default.createElement(
                 'div',
                 { className: 'input-group input-group-lg' },
-                _react2.default.createElement('input', { type: 'search', className: 'form-control' }),
+                _react2.default.createElement('input', { type: 'search', className: 'form-control', onChange: this._handleChange.bind(this) }),
                 _react2.default.createElement(
                   'span',
                   { className: 'input-group-btn input-space' },
                   _react2.default.createElement(
                     'button',
-                    { className: 'btn', type: 'submit', onClick: this._postTest },
+                    { className: 'btn', type: 'submit' },
                     'search'
                   )
                 )
@@ -21054,11 +21074,13 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 module.exports = {
 
-  search: function search() {
-    _superagent2.default.post('/api/search').send({ post: 'data', here: 'wahoo' }).end(function (err, res) {
+  searchRequest: function searchRequest(data) {
+    _superagent2.default.post('/api/search').send({ searchTerm: data }).end(function (err, res) {
+      if (err) console.log(err);
       console.log(res);
     });
   }
+
 };
 
 },{"../actions/serveractions":166,"superagent":163}],175:[function(require,module,exports){
