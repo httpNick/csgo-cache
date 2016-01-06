@@ -44,7 +44,7 @@ function map_error(err) {
 
 gulp.task('watchify', function () {
   var args = merge(watchify.args, { debug: true })
-  var bundler = watchify(browserify('./public/js/index.js', args)).transform(babelify, {presets: ["es2015", "react"]})
+  var bundler = watchify(browserify('./public/app.js', args)).transform(babelify, {presets: ["es2015", "react"]})
   bundle_js(bundler)
 
   bundler.on('update', function () {
@@ -55,33 +55,33 @@ gulp.task('watchify', function () {
 function bundle_js(bundler) {
   return bundler.bundle()
     .on('error', map_error)
-    .pipe(source('index.js'))
+    .pipe(source('bundle.js'))
     .pipe(buffer())
-    .pipe(gulp.dest('public/dist'))
-    .pipe(rename('index.min.js'))
-    .pipe(sourcemaps.init({ loadMaps: true }))
+    .pipe(gulp.dest('public/build'))
+    .pipe(rename('bundle.min.js'))
+    .pipe(sourcemaps.init({ loadMaps: false }))
       // capture sourcemaps from transforms
       .pipe(uglify())
     .pipe(sourcemaps.write('.'))
-    .pipe(gulp.dest('public/dist'))
+    .pipe(gulp.dest('public/build'))
 }
 
 // Without watchify
 gulp.task('browserify', function () {
-  var bundler = browserify('./public/js/index.js', { debug: true }).transform(babelify, {presets: ["es2015", "react"]})
+  var bundler = browserify('./public/app.js', { debug: true }).transform(babelify, {presets: ["es2015", "react"]})
 
   return bundle_js(bundler)
 })
 
 // Without sourcemaps
 gulp.task('browserify-production', function () {
-  var bundler = browserify('./src/js/app.js').transform(babelify, {presets: ["es2015", "react"]})
+  var bundler = browserify('./public/app.js').transform(babelify, {presets: ["es2015", "react"]})
 
   return bundler.bundle()
     .on('error', map_error)
-    .pipe(source('index.js'))
+    .pipe(source('bundle.js'))
     .pipe(buffer())
-    .pipe(rename('index.min.js'))
+    .pipe(rename('bundle.min.js'))
     .pipe(uglify())
-    .pipe(gulp.dest('public/dist'))
+    .pipe(gulp.dest('public/build'))
 })

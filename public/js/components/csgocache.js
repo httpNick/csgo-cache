@@ -1,6 +1,5 @@
 import React from 'react';
 import NavBar from './navbar';
-import TheButton from './thebutton';
 import store from '../stores/store'
 import Search from './search'
 
