@@ -1,5 +1,5 @@
 {
-  "name": "csgo-cache",
+	"name": "csgo-cache",
   "version": "1.0.0",
   "description": "CSGO market viewer and market analyzer built with modern web frameworks.",
   "scripts": {
