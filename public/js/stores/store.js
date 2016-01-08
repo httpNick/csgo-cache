@@ -3,7 +3,8 @@ import {constants} from '../constants/constants';
 import {EventEmitter} from 'events';
 
 let _stuff = {
-  datalist : []
+  datalist : [],
+  showResults : false
 };
 
 class CSGOStore extends EventEmitter {
@@ -29,8 +30,10 @@ AppDispatcher.register((payload) => {
 
   case constants.TEST_RESPONSE:
 
-    _stuff.datalist.push(payload.response.test);
-    console.log(payload.response.test);
+    _stuff.datalist.push(payload.response);
+    _stuff.showResults = false;
+    console.log(_stuff.showResults);
+    console.log(payload.response);
     csgostore.emit(constants.CHANGE);
     break;
 

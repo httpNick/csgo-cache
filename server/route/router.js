@@ -11,7 +11,7 @@ router.use(bodyParser.urlencoded({
 router.post('/api/search', (req, res, next) => {
   var term = req.body.searchTerm;
   searchutil(term.toLowerCase());
-  res.json({test: 'post received'});
+  res.json({test: term});
 });
 
 module.exports = router;

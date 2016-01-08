@@ -11,11 +11,13 @@ module.exports = {
     api.search();
   },
 
-  searchForTerm : (data) => {
-    AppDispatcher.dispatch({
-      actionType: constants.TEST
+  searchForTerm : (term) => {
+    api.searchRequest(term, (data) => {
+      AppDispatcher.dispatch({
+        actionType: constants.TEST
+      });
+      console.log(data);
     });
-    api.searchRequest(data);
   }
 
 };
