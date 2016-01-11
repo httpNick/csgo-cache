@@ -9,7 +9,7 @@ module.exports = {
       .send({ searchTerm : data })
       .end((err, res) => {
         if (err) console.log(err);
-          serveractions.receiveTest(JSON.parse(res.text));
+        serveractions.receiveTest(JSON.parse(res.text));
       })
   },
 

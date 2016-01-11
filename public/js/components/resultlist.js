@@ -9,13 +9,15 @@ export default class Results extends React.Component {
   render() {
     return (
       <div className="list-panel">
-        <ul>
-          {
-            this.props.results.map((item, index) => {
-              return <p key={index}> {item} </p>;
-            })
-          }
-        </ul>
+        <div className="panel-body fixed-panel">
+          <ul>
+            {
+              this.props.results.map((item, index) => {
+                return <p key={index}> {item} </p>;
+              })
+            }
+          </ul>
+        </div>
       </div>
     )
   }

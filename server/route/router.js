@@ -1,7 +1,8 @@
-var express = require('express');
-var router = express.Router();
-var bodyParser = require('body-parser');
-var searchutil = require('../utils/searchhandler');
+var express = require('express')
+, router = express.Router()
+, bodyParser = require('body-parser')
+, searchutil = require('../utils/searchhandler')
+, dbhandler = require('../utils/dbhandler');
 
 router.use( bodyParser.json() );
 router.use(bodyParser.urlencoded({
@@ -10,8 +11,11 @@ router.use(bodyParser.urlencoded({
 
 router.post('/api/search', (req, res, next) => {
   var term = req.body.searchTerm;
-  searchutil(term.toLowerCase());
-  res.json({test: term});
+  dbhandler.findSingleItem(term, (err, result) => {
+    if(err) console.log(err);
+    res.json({test: result.someprop})
+  });
+  //searchutil(term.toLowerCase());
 });
 
 module.exports = router;

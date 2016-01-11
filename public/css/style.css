@@ -28,7 +28,12 @@ html, body, div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pr
     vertical-align: baseline;
     background: transparent;
 }
-
+/* ------ fixed-panel */
+.fixed-panel {
+      min-height: 10;
+      max-height: 300;
+      overflow-y: scroll;
+}
 /* ------ list-panel */
 .list-panel {
   font-family: 'Source Sans Pro';
@@ -39,7 +44,7 @@ html, body, div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pr
   height: 140px;
   top: 50%;
   left: 50%;
-  margin: 50px 0 0 -400px;
+  margin: 25px 0 0 -400px;
   padding: 20px;
   border-radius: 4px;
   z-index: 100;
