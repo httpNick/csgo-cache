@@ -30,6 +30,7 @@
     "babel-preset-react": "^6.1.18",
     "babelify": "^7.2.0",
     "body-parser": "^1.14.1",
+    "csgo-market": "^1.4.2",
     "ejs": "^2.3.4",
     "express": "^4.13.3",
     "flux": "^2.1.1",

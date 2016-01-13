@@ -34,4 +34,15 @@ module.exports = {
     */
   }
 
-}
+  // db['csgo-cache'].update( { item: "AK-47", skins : { $elemMatch : { skin : { $eq: "Vulcan" }, "wear" :{ $eq:  "Factory New" } } } }, { $set : { "skins.$.lowest_price" : 81.00 } } )
+  /*
+  updateItem: (item, cb) => {
+    mongoclient.connect(dbconfig.url, (err, db) => {
+      db.collection('csgo-cache').updateOne(
+          {item : item.name},
+          {$set: { }}
+      );
+    });
+  }*/
+
+};
