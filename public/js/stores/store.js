@@ -32,8 +32,6 @@ AppDispatcher.register((payload) => {
 
     _stuff.datalist.push(payload.response);
     _stuff.showResults = false;
-    console.log(_stuff.showResults);
-    console.log(payload.response);
     csgostore.emit(constants.CHANGE);
     break;
 

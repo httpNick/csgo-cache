@@ -8,9 +8,11 @@ module.exports = {
       .post('/api/search')
       .send({ searchTerm : data })
       .end((err, res) => {
-        if (err) console.log(err);
-        serveractions.receiveTest(JSON.parse(res.text));
-      })
-  },
+        if (err) cb(err, null);
+	      var parsedJSON = JSON.parse(res.text);
+	      serveractions.receiveTest(parsedJSON);
+	      cb(null, parsedJSON);
+      });
+  }
 
 };

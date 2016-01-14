@@ -1,21 +1,23 @@
 var express = require('express')
-, router = express.Router()
-, bodyParser = require('body-parser')
-, searchutil = require('../utils/searchhandler')
-, dbhandler = require('../utils/dbhandler');
+  , router = express.Router()
+  , bodyParser = require('body-parser')
+  , dbhandler = require('../utils/dbhandler');
 
-router.use( bodyParser.json() );
-router.use(bodyParser.urlencoded({
-  extended: true
-}));
 
-router.post('/api/search', (req, res, next) => {
-  var term = req.body.searchTerm;
-  dbhandler.findSingleItem(term, (err, result) => {
-    if(err) console.log(err);
-    res.json({test: result.someprop})
+
+module.exports = function(dbConn) {
+  router.use(bodyParser.json());
+  router.use(bodyParser.urlencoded({
+    extended: true
+  }));
+
+  router.post('/api/search', (req, res, next) => {
+    var term = req.body.searchTerm;
+    dbhandler.findSingleItem(term, dbConn, (err, document) => {
+          if (err) res.json({ test: err });
+          res.json({ test: document.item });
+        })
   });
-  //searchutil(term.toLowerCase());
-});
 
-module.exports = router;
+  return router;
+};
