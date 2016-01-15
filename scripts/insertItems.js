@@ -16,14 +16,21 @@ establishdb((err, db) => {
 				.pipe(jsonstream.parse('*'))
 				.pipe(es.mapSync((data) => {
 					var skins = [];
-					for (i = 0; i < data.skins.length; i++) {
-						skins.push(data.skins[i].skinName);
+					for (var i = 0; i < data.skins.length; i++) {
+						skins.push(
+							data.skins[i].skinName
+						);
 					}
 
 					dbhandle.insertItem(
 						data.name,
 						skins,
-						db
+						db,
+						(err, r) => {
+							if (!err) {
+								console.log(r);
+							}
+						}
 					);
 
 					return data;

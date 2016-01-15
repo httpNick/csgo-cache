@@ -43,6 +43,7 @@
     "JSONStream": "^1.0.7",
     "browserify": "^12.0.1",
     "chalk": "^1.1.1",
+    "csgo-market": "^1.4.2",
     "event-stream": "^3.3.2",
     "gulp": "^3.9.0",
     "gulp-rename": "^1.2.2",
