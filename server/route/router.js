@@ -15,7 +15,11 @@ module.exports = function(dbConn) {
     var term = req.body.searchTerm;
     dbhandler.findSingleItem(term, dbConn, (err, document) => {
           if (err) res.json({ test: err });
-          res.json({ test: document.item });
+	        if (document) {
+		        res.json({ test: document.item });
+	        } else {
+		        res.json({test: 'no result found'});
+	        }
         })
   });
 
