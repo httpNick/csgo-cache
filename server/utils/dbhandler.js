@@ -1,15 +1,36 @@
 module.exports = {
 
   findSingleItem : (term, db, cb) => {
-      db.collection('csgo-cache').findOne((err, doc) => {
-        if(err) cb(err, null);
-        if (doc != null) {
-          cb(null, doc);
-        } else {
-          cb(null, null);
-        }
-      });
-  }
+      db.collection('csgo-cache')
+        .find({item:term})
+        .limit(1)
+	      .next((err, doc) => {
+		      if (err) cb(err, null);
+          if (doc != null) {
+            cb(null, doc);
+          } else {
+            cb(null, null);
+          }
+        });
+  },
+
+	insertItem : (name, skins, db) => {
+		db.collection('items')
+		.insertMany(
+			[{name: name, skins: skins}],
+			{w:1},
+			(err, r) => {
+				if (err) {
+					console.log(err)
+				} else {
+					console.log(r);
+				}
+			})
+	},
+
+	insertSkin : (name, wear, stattrak, skindata) => {
+
+	}
 
   /*
   findItems: (input, cb) => {
