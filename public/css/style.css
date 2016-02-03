@@ -31,8 +31,8 @@ html, body, div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pr
 /* ------ fixed-panel */
 .fixed-panel {
       min-height: 10;
-      max-height: 300;
-      overflow-y: scroll;
+      max-height: 200;
+      overflow-y: auto;
 }
 /* ------ list-panel */
 .list-panel {
