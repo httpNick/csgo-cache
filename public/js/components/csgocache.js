@@ -39,4 +39,4 @@ export default class csgocache extends React.Component {
   }
 }
 
-particlesJS.load('particles-js', '../../assets/particles.json', () => {});
+particlesJS.load('particles-js', '../assets/particles.json', () => {});
