@@ -3,12 +3,16 @@
   "version": "1.0.0",
   "description": "CSGO market viewer and market analyzer built with modern web frameworks.",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+		"start": "node server.js"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/httpNick/csgo-cache.git"
+    "url": "git+https://bitbucket.org/nick_duncan/csgo-cache.git"
   },
+	"engines": {
+		"node": "4.2.3"
+	},
   "keywords": [
     "csgo",
     "csgostash",
