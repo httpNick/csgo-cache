@@ -1,5 +1,4 @@
 var mongoclient = require('mongodb').MongoClient
-	, dbconfig = require('../assets/config.db');
 
 module.exports = (cb) => {
 
