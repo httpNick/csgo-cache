@@ -12,6 +12,18 @@ module.exports = {
       });
     });
 
+  },
+
+  clearResults: () => {
+    AppDispatcher.dispatch({
+      actionType: constants.CLEARRESULTS
+    });
+  },
+
+  showChart: () => {
+    AppDispatcher.dispatch({
+      actionType: constants.SHOWCHART
+    })
   }
 
 };

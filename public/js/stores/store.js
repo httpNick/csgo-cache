@@ -4,7 +4,7 @@ import {EventEmitter} from 'events';
 
 let _stuff = {
   datalist : [],
-  showResults : false
+  showChart : false
 };
 
 class CSGOStore extends EventEmitter {
@@ -28,15 +28,28 @@ const csgostore = new CSGOStore();
 AppDispatcher.register((payload) => {
   switch (payload.actionType) {
 
-  case constants.TEST_RESPONSE:
+    case constants.TEST_RESPONSE:
 
-    _stuff.datalist.push(payload.response);
-    _stuff.showResults = false;
-    csgostore.emit(constants.CHANGE);
-    break;
+      _stuff.datalist.push(payload.response);
+      _stuff.showChart = false;
+      csgostore.emit(constants.CHANGE);
+      break;
 
-  default:
-    return true;
+    case constants.CLEARRESULTS:
+
+      _stuff.datalist = [];
+      csgostore.emit(constants.CHANGE);
+      break;
+
+    case constants.SHOWCHART:
+
+      _stuff.datalist = [];
+      _stuff.showChart = true;
+      csgostore.emit(constants.CHANGE);
+      break;
+
+    default:
+      return true;
   }
 });
 

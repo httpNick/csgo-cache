@@ -1,4 +1,5 @@
 import React from 'react';
+import {showChart} from '../actions/actions'
 
 export default class Results extends React.Component {
   constructor(props) {
@@ -6,14 +7,19 @@ export default class Results extends React.Component {
     this.props = props;
   }
 
+  _handleResultClick(event) {
+    event.preventDefault();
+    showChart();
+  }
+
   render() {
     return (
       <div className="list-panel">
         <div className="panel-body fixed-panel">
-          <ul>
+          <ul className="no-list-style-type">
             {
               this.props.results.map((item, index) => {
-                return <p key={index}> {item} </p>;
+                return <li key={index} onClick={this._handleResultClick.bind(this)}> <a href="#"> {item} </a></li>;
               })
             }
           </ul>

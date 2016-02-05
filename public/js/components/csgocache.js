@@ -3,6 +3,7 @@ import NavBar from './navbar';
 import store from '../stores/store'
 import Search from './search'
 import Results from './resultlist'
+import PriceChart from './pricechart'
 
 export default class csgocache extends React.Component {
 
@@ -11,7 +12,7 @@ export default class csgocache extends React.Component {
     this._onChange = this._onChange.bind(this);
     this.state = {
       datalist: [],
-      showResults: false
+      showChart: false
     }
   }
 
@@ -32,7 +33,9 @@ export default class csgocache extends React.Component {
       <div>
         <NavBar />
         <Search />
-        <Results results={this.state.datalist}/>
+        {(() => {
+          return this.state.showChart ? <PriceChart /> : <Results results={this.state.datalist}/>;
+        })()}
       </div>
     );
   }

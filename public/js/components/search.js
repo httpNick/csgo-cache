@@ -1,5 +1,5 @@
 import React from 'react';
-import {searchForTerm} from '../actions/actions';
+import {searchForTerm, clearResults} from '../actions/actions';
 
 export default class Search extends React.Component {
 
@@ -18,6 +18,7 @@ export default class Search extends React.Component {
 
   _handleSubmit(event) {
     event.preventDefault();
+    clearResults();
     searchForTerm(this.state.value);
     this.setState({
       value: ''

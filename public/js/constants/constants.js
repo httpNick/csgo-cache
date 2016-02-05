@@ -1,5 +1,7 @@
 export const constants = {
   TEST : 'TEST',
   TEST_RESPONSE : 'TEST_RESPONSE',
-  CHANGE : 'CHANGE'
+  CHANGE : 'CHANGE',
+  CLEARRESULTS : 'CLEARRESULTS',
+  SHOWCHART : 'SHOWCHART'
 };

@@ -1,3 +1,5 @@
+var q = require('q');
+
 const collections = {
 	items : 'items',
 	skins : 'skins',
@@ -50,37 +52,39 @@ module.exports = {
 		);
 	},
 
-	insertSkin : (bundle, db, cb) => {
-		db.collection(
-			collections.skins
-		).insertMany(
-			[
+	insertSkin : (bundle, db) => {
+		return q.Promise((resolve, reject) => {
+			db.collection(
+				collections.skins
+			).insertMany(
+				[
+					{
+						itemName: bundle.wep,
+						skinName: bundle.skin,
+						wear: bundle.wear,
+						stattrak: bundle.stattrak,
+						skinData: [
+							{
+								lowest_price: bundle.lowest_price,
+								median_price: bundle.median_price,
+								volume: bundle.volume,
+								updated_on: new Date().getTime()
+							}
+						]
+					}
+				],
 				{
-					itemName : bundle.wep,
-					skinName : bundle.skin,
-					wear     : bundle.wear,
-					stattrak : bundle.stattrak,
-					skinData : [
-						{
-							lowest_price : bundle.lowest_price,
-							median_price : bundle.median_price,
-							volume       : bundle.volume,
-							updated_on   : new Date().getTime()
-						}
-					]
+					w: 1
+				},
+				(err, r) => {
+					if (err) {
+						reject(err);
+					} else {
+						resolve(r);
+					}
 				}
-			],
-			{
-				w : 1
-			},
-			(err, r) => {
-				if (err) {
-					cb(err, null);
-				} else {
-					cb(null, r);
-				}
-			}
-		);
+			);
+		});
 	}
 
   // db['csgo-cache'].update( { item: "AK-47", skins : { $elemMatch : { skin : { $eq: "Vulcan" }, "wear" :{ $eq:  "Factory New" } } } }, { $set : { "skins.$.lowest_price" : 81.00 } } )
