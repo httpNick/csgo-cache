@@ -9,7 +9,7 @@ export default class Results extends React.Component {
 
   _handleResultClick(item, event) {
     event.preventDefault();
-    showChart();
+    showChart(item.item, item.skin);
   }
 
   render() {

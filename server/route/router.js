@@ -24,5 +24,18 @@ module.exports = function(dbConn) {
         })
   });
 
+  router.post('/api/getPrice', (req, res, next) => {
+    var item = req.body.item;
+    var skin = req.body.skin;
+    dbhandler.findPricesForItem(item, skin, dbConn)
+      .then((document) => {
+        console.log(document);
+        res.json(document);
+      }, (err) => {
+        console.log(err);
+        res.err(err);
+      });
+  });
+
   return router;
 };

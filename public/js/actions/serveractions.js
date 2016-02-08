@@ -3,11 +3,13 @@ import {constants} from '../constants/constants';
 
 module.exports = {
 
-  receiveTest : (data) => {
-    AppDispatcher.dispatch({
-      actionType: constants.SEARCH_RESPONSE,
-      response: data
-    });
+  receiveSearchRes : (data) => {
+    if (typeof(data) != Error) {
+      AppDispatcher.dispatch({
+        actionType: constants.SEARCH_RESPONSE,
+        response: data
+      });
+    }
   }
 
 };

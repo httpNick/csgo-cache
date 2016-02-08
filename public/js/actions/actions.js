@@ -6,11 +6,7 @@ module.exports = {
 
   searchForTerm : (term) => {
 
-    api.searchRequest(term, (err, data) => {
-      AppDispatcher.dispatch({
-        actionType: constants.TEST
-      });
-    });
+    api.searchRequest(term);
 
   },
 
@@ -20,7 +16,8 @@ module.exports = {
     });
   },
 
-  showChart: () => {
+  showChart: (item, skin) => {
+    api.priceRequest(item, skin);
     AppDispatcher.dispatch({
       actionType: constants.SHOWCHART
     })

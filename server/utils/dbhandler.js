@@ -29,6 +29,26 @@ module.exports = {
       );
   },
 
+  findPricesForItem : (item, skin, db) => {
+    return new Promise((resolve, reject) => {
+      db.collection(
+        collections.skins
+      ).find(
+        {
+          itemName : item,
+          skinName : skin
+        }
+      ).toArray(
+        (err, doc) => {
+          if (err) reject(err);
+          if (doc) {
+            resolve(doc);
+          }
+        }
+      )
+    });
+  },
+
 	insertItem : (name, skins, db, cb) => {
 		db.collection(
 			collections.items
