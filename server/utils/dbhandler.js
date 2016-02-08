@@ -37,6 +37,9 @@ module.exports = {
         {
           itemName : item,
           skinName : skin
+        },
+        {
+          skinData : 1
         }
       ).toArray(
         (err, doc) => {

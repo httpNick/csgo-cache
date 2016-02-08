@@ -18,9 +18,6 @@ module.exports = {
 
   showChart: (item, skin) => {
     api.priceRequest(item, skin);
-    AppDispatcher.dispatch({
-      actionType: constants.SHOWCHART
-    })
   }
 
 };

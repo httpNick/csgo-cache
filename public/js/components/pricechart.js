@@ -1,28 +1,38 @@
 import React from 'react';
 var LineChart = require("react-chartjs").Line;
+
+var getLabels = (count) => {
+  var labels = [];
+  for (var i  = 1; i <= count; i++) {
+    labels.push(i);
+  }
+  return labels;
+};
+
 var data = {
 
-  labels: ["January", "February", "March", "April", "May", "June", "July"],
+
+  labels: getLabels(50),
   datasets: [
     {
-      label: "My First dataset",
+      label: "lowest price",
       fillColor: "rgba(220,220,220,0.2)",
       strokeColor: "rgba(220,220,220,1)",
       pointColor: "rgba(220,220,220,1)",
       pointStrokeColor: "#fff",
       pointHighlightFill: "#fff",
       pointHighlightStroke: "rgba(220,220,220,1)",
-      data: [65, 59, 80, 81, 56, 55, 40]
+      data: []
     },
     {
-      label: "My Second dataset",
+      label: "median price",
       fillColor: "rgba(151,187,205,0.2)",
       strokeColor: "rgba(151,187,205,1)",
       pointColor: "rgba(151,187,205,1)",
       pointStrokeColor: "#fff",
       pointHighlightFill: "#fff",
       pointHighlightStroke: "rgba(151,187,205,1)",
-      data: [28, 48, 40, 19, 86, 27, 90]
+      data: []
     }
   ]
 };
@@ -31,6 +41,14 @@ export default class PriceChart extends React.Component {
   constructor(props) {
     super(props);
     this.props = props;
+    data.datasets[0].data = this.props.lowest;
+    data.datasets[1].data = this.props.median;
+  }
+
+  componentDidUpdate(prevProps, prevState) {
+  }
+
+  componentWillUpdate(nextProps, nextState) {
   }
 
   render() {

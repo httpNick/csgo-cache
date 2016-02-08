@@ -22,7 +22,7 @@ module.exports = {
         if (err) {
           console.log(err);
         } else {
-          console.log(JSON.parse(res.text));
+          serveractions.receivePriceRes(JSON.parse(res.text));
         }
       });
   }

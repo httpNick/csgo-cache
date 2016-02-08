@@ -12,6 +12,8 @@ export default class csgocache extends React.Component {
     this._onChange = this._onChange.bind(this);
     this.state = {
       datalist: [],
+      lowest: [],
+      median: [],
       showChart: false
     }
   }
@@ -34,7 +36,9 @@ export default class csgocache extends React.Component {
         <NavBar />
         <Search />
         {(() => {
-          return this.state.showChart ? <PriceChart /> : <Results results={this.state.datalist}/>;
+          return this.state.showChart ?
+            <PriceChart lowest={this.state.lowest} median={this.state.median}/>
+            : <Results results={this.state.datalist}/>;
         })()}
       </div>
     );

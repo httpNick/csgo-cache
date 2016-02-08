@@ -4,6 +4,8 @@ import {EventEmitter} from 'events';
 
 let _stuff = {
   datalist : [],
+  lowest : [],
+  median : [],
   showChart : false
 };
 
@@ -39,6 +41,16 @@ AppDispatcher.register((payload) => {
       csgostore.emit(constants.CHANGE);
       break;
 
+    case constants.PRICE_RESPONSE:
+
+      payload.response.forEach((ele) => {
+        _stuff.lowest.push(parseFloat(ele.skinData[0].lowest_price.slice(1)));
+        _stuff.median.push(parseFloat(ele.skinData[0].median_price.slice(1)));
+      });
+      _stuff.showChart = true;
+      csgostore.emit(constants.CHANGE);
+      break;
+
     case constants.CLEARRESULTS:
 
       _stuff.datalist = [];
@@ -46,7 +58,6 @@ AppDispatcher.register((payload) => {
       break;
 
     case constants.SHOWCHART:
-
       _stuff.datalist = [];
       _stuff.showChart = true;
       csgostore.emit(constants.CHANGE);
