@@ -54,6 +54,8 @@ AppDispatcher.register((payload) => {
     case constants.CLEARRESULTS:
 
       _stuff.datalist = [];
+      _stuff.lowest = [];
+      _stuff.median = [];
       csgostore.emit(constants.CHANGE);
       break;
 
