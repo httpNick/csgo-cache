@@ -28,9 +28,13 @@ const csgostore = new CSGOStore();
 AppDispatcher.register((payload) => {
   switch (payload.actionType) {
 
-    case constants.TEST_RESPONSE:
+    case constants.SEARCH_RESPONSE:
 
-      _stuff.datalist.push(payload.response);
+      if (payload.response.items) {
+        _stuff.datalist = payload.response.items;
+      } else {
+        _stuff.datalist.push(payload.response);
+      }
       _stuff.showChart = false;
       csgostore.emit(constants.CHANGE);
       break;

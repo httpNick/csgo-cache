@@ -1,7 +1,8 @@
 var express = require('express')
   , router = express.Router()
   , bodyParser = require('body-parser')
-  , dbhandler = require('../utils/dbhandler');
+  , dbhandler = require('../utils/dbhandler')
+  , dataformat = require('../utils/dataformatter');
 
 
 
@@ -16,9 +17,9 @@ module.exports = function(dbConn) {
     dbhandler.findSingleItem(term, dbConn, (err, document) => {
           if (err) res.json({ test: err });
 	        if (document) {
-		        res.json({ test: document.item });
+		        res.json({ items: dataformat.breakUpPerSkin(document)});
 	        } else {
-		        res.json({test: 'no result found'});
+		        res.json({nores: 'no result found'});
 	        }
         })
   });

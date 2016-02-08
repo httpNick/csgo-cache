@@ -7,7 +7,7 @@ export default class Results extends React.Component {
     this.props = props;
   }
 
-  _handleResultClick(event) {
+  _handleResultClick(item, event) {
     event.preventDefault();
     showChart();
   }
@@ -19,7 +19,12 @@ export default class Results extends React.Component {
           <ul className="no-list-style-type">
             {
               this.props.results.map((item, index) => {
-                return <li key={index} onClick={this._handleResultClick.bind(this)}> <a href="#"> {item} </a></li>;
+                if (item.item) {
+                  return <li key={index} onClick={this._handleResultClick.bind(this, item)}><a
+                    href="#"> {item.item} {item.skin} </a></li>;
+                } else {
+                  return <li key={index}> {item.nores} </li>;
+                }
               })
             }
           </ul>

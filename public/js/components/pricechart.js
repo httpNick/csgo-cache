@@ -35,8 +35,10 @@ export default class PriceChart extends React.Component {
 
   render() {
     return (
-      <div className="list-panel">
-        <LineChart data={data} width="600" height="250"/>
+      <div className="single-result-panel">
+        <div className="chart-panel">
+          <LineChart data={data} width="600" height="250"/>
+        </div>
       </div>
     )
   }

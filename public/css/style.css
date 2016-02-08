@@ -54,6 +54,28 @@ html, body, div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pr
   z-index: 100;
 }
 
+.single-result-panel {
+  font-family: 'Source Sans Pro';
+  opacity: 0.9;
+  background: #000000;
+  font-size: 1.3em;
+  position: absolute;
+  z-index: 100;
+  width: 735px;
+  height: 350px;
+  top: 50%;
+  left: 50%;
+  margin: 50px 0 0 -375px;
+  padding: 20px;
+  border-radius: 4px;
+}
+
+.chart-panel {
+  width: 650px;
+  height: 250px;
+  margin: 50px 0 0 42px;
+}
+
 /* ------ search-panel */
 .search-panel {
   font-family: 'Source Sans Pro';

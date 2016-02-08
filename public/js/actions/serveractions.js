@@ -5,8 +5,8 @@ module.exports = {
 
   receiveTest : (data) => {
     AppDispatcher.dispatch({
-      actionType: constants.TEST_RESPONSE,
-      response: data.test
+      actionType: constants.SEARCH_RESPONSE,
+      response: data
     });
   }
 

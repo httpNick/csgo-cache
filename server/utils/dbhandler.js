@@ -10,10 +10,10 @@ module.exports = {
 
   findSingleItem : (term, db, cb) => {
       db.collection(
-	      collections.test
+	      collections.items
       ).find(
 	      {
-		      item : term
+		      name : term
 	      }
       ).limit(
 	      1
