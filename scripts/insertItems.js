@@ -9,7 +9,7 @@ establishdb((err, db) => {
 		console.log(err);
 		return err;
 	} else {
-		var rs = fs.createReadStream(__dirname + '/items.json');
+		var rs = fs.createReadStream(__dirname + '/weapons.json');
 
 		rs.on('open', () => {
 			rs

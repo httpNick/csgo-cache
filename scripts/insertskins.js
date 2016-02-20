@@ -1,24 +1,19 @@
 var dbhandle = require('../server/utils/dbhandler')
 	, establishdb = require('../server/utils/establishdbconnection')
 	, csgomarket = require('csgo-market')
-	, allItems = require('./items');
+	, allItems = require('./weapons')
+    , wears = require('./wears');
 
 var itemInConsideration = allItems[0];
-var wears = [
-	'Factory New', 'Minimal Wear',
-	'Field-Tested', 'Well-Worn',
-	'Battle-Scarred'
-];
 
 establishdb((err, db) => {
 
-	var testSkin = {
+	var testWeapon = {
 
 		item: itemInConsideration.name,
 		skin: '',
 		wear: '',
 		stattrak: false
-
 	};
 
 	for(var x = 0; x < itemInConsideration.skins.length; x++) {
