@@ -96,6 +96,28 @@ module.exports = {
 				}
 			);
 		});
+	},
+
+	insertWeapon : (bundle, db) => {
+		return q.Promise((resolve, reject) => {
+			db.collection(
+				collections.weapons
+			).insertOne(
+				{
+					weapon_name : bundle.wep,
+					skin_name : bundle.skin,
+					wear : bundle.wear,
+					stattrak : bundle.stattrak
+				},
+				(err, r) => {
+					if (err) {
+						reject(err);
+					} else {
+						resolve(r);
+					}
+				}
+			)
+		});
 	}
 
   // db['csgo-cache'].update( { item: "AK-47", skins : { $elemMatch : { skin : { $eq: "Vulcan" }, "wear" :{ $eq:  "Factory New" } } } }, { $set : { "skins.$.lowest_price" : 81.00 } } )
