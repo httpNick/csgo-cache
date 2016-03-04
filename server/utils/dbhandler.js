@@ -2,8 +2,8 @@ var q = require('q');
 
 const collections = {
 	items : 'items',
-	skins : 'skins',
-	test  : 'csgo-cache'
+	weapons : 'weapons',
+	overviews : 'overviews'
 };
 
 module.exports = {
@@ -75,29 +75,17 @@ module.exports = {
 		);
 	},
 
-	insertSkin : (bundle, db) => {
+	insertOverview : (bundle, db) => {
 		return q.Promise((resolve, reject) => {
 			db.collection(
-				collections.skins
-			).insertMany(
-				[
-					{
-						itemName: bundle.wep,
-						skinName: bundle.skin,
-						wear: bundle.wear,
-						stattrak: bundle.stattrak,
-						skinData: [
-							{
-								lowest_price: bundle.lowest_price,
-								median_price: bundle.median_price,
-								volume: bundle.volume,
-								updated_on: new Date().getTime()
-							}
-						]
-					}
-				],
+				collections.overviews
+			).insertOne(
 				{
-					w: 1
+					weapon_id: bundle.id,
+					lowest_price: bundle.lowest_price,
+					median_price: bundle.median_price,
+					volume: bundle.volume,
+					created_on: new Date().getTime()
 				},
 				(err, r) => {
 					if (err) {
@@ -107,6 +95,28 @@ module.exports = {
 					}
 				}
 			);
+		});
+	},
+
+	insertWeapon : (bundle, db) => {
+		return q.Promise((resolve, reject) => {
+			db.collection(
+				collections.weapons
+			).insertOne(
+				{
+					weapon_name : bundle.wep,
+					skin_name : bundle.skin,
+					wear : bundle.wear,
+					stattrak : bundle.stattrak
+				},
+				(err, r) => {
+					if (err) {
+						reject(err);
+					} else {
+						resolve(r);
+					}
+				}
+			)
 		});
 	}
 
